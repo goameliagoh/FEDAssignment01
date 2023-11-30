@@ -1,0 +1,1686 @@
+body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;  /* make website dont shift left and right*/
+  background-color: #fefdfb;
+}
+  
+
+/* BELOW IS ALL CODES FOR HOMEPAGE */
+.banner {                                /* use .banner instead of just banner to show that its a class */
+    font-family: 'Noto Serif JP', serif;
+    background-color:#212121;
+    width: 100%;                /* Set the width to 100% to make it span the entire width instead of px bc px u need specifyc the px of the exact width.. so just use 100% easier  */
+    height: 200px;
+    display: flex;                    /* This makes use of something called Flexbox. Ensures that even on phone/when you squeeze the website, the name will always be in the center of banner */
+    align-items: center;               /* enter vertically */
+    justify-content: center;          /* Centers the name horizontally */
+    color: white;                   /* color of font */
+    font-size: 90px;                    /* Meaning font size changes whenever your viewport (smth like sizing of diff devices) changes. so 3vw means font size will take up 3% of your viewport always */
+    letter-spacing: 10px;             /*  letter spacing */
+    
+}
+
+/* POP UP */
+.popup {
+  width: 80%;
+  max-width: 1500px; /* Set a maximum width for the popup */
+  height: auto;
+  position: fixed; /* so picture stays there until user clicks X on the photo */
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  z-index: 1000; /* Set a high z-index value to ensure it appears on top */
+}
+
+.popup button {
+  position: absolute;   /* so your x button will not be in its default position, instead it will be positioned how you want it aka what conditions youu write for top and button etc */
+  top: 50px;
+  right: 20px;
+  font-size: 50px;   /* size of my buttonn */
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.popup img {
+  height: auto;
+  width: 100%; /* Make the image fill the width of the popup */
+  max-height: 9000vh; /* Set a larger maximum height for the image */
+  margin-top: 20px; /*separate the image from the button */
+}
+
+/* Slideshow container */
+.slideshow-container {
+    position: relative ;   /* Eg if yu have an element inside (known as child element) eg an arrow, then this arrow no matter what will always be positioned in a way that fits the boundaries of the image in this slide show container. Thats why if yoou remove this code, if you go on smaller screen to view the website, arrows cannot be seen since it is NOT positioned in a way that fits the boundaries of the images in this container */
+    overflow: hidden;     /* Ensure that any overflow is hidden to handle images of different aspect ratios  aka it dont overlap out eg your screen only 20cm, then ur image will also be fit to 20cm and not overlap to be like 40cm etc etc  */
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;          /* Ensures that only 1 image is shown at a time for the slide show */
+  }
+  
+ /* Code here is all for my arrow button */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;      /* Ensures that arrow button is at a fixed position in my images, but is not position: fixed; instead because if so, then the arrow will still be there when you scroll. but in this case, we only want arrow to stay fixed within the images such that even when scroll, the arrow will move */
+    top: 50%;                /* Centralise your arrow button */
+    padding: 16px;            /* change the inner space of element  */
+    color: white;
+    font-weight: bold;        /* arrow is in bold!! */
+    font-size: 20px;
+    transition: 0.6s;
+    user-select: none;         /* so that user cannot select the button or copypaste the button etc. is like in figma when you lock ur elements then cannot copy paste it  */
+  }
+  
+  .prev {
+    left: 0;   /* enusres button at the very left */
+  }
+  
+  .next {
+    right: 0;
+  }
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;             /* No spacing between top and bottom, but have 2px spacing from left and right + margin is change whiespace avail surrounding element, but padding is change inner spacing of element */
+  background-color: #bbb;
+  border-radius: 50%;        /* so that the dots are circles. without this, it would be squares */
+  display: inline-block;     /* ensures all button are in line and also same size */
+  transition: background-color 0.6s ease;  /* transition as you switch from the different buttons + when the background color of a dot changes, it should take 0.6 seconds to smoothly transition from the current color to the new color, and the transition should have an easing effect for a visually pleasing animation*/
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+/* Fading animation/transition for images */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+}
+
+.slideshow-container img {
+  height: 100%;
+  width: 100%;
+}
+
+
+@keyframes fade {           /* @keyframes is just declaring a keyframe animation called fade. its a css rule to create animations */
+  from {opacity: .4}        /* starting opacity */
+  to {opacity: 1}           /* ending opacity */
+}
+
+/* The navigation menu */
+.navbar {
+  overflow: hidden;
+  background-color: #f7f7f7;
+  list-style: none;
+  display: flex;
+  width: 100%;
+  height: 70px;
+  text-align:center;
+  justify-content: center; 
+}
+  
+  /* Navigation links aka the text names like Home, Contact Us*/
+  .navbar a {
+    font-size: 22px;
+    color: BLACK;
+    padding: 20px 30px;
+    text-decoration: none;
+  }
+  
+  /* The subnavigation menu */
+  .subnav {
+    overflow: hidden;
+    text-align: center; /* Add this line to center the navigation */
+  }
+  
+  /* Subnav buttons aka the text names like Earrings, Charms etc etc */
+  .subnav .subnavbtn {
+    font-size: 22px;
+    border: none;
+    outline: none;
+    color: BLACK;
+    padding: 20px 30px;
+    background-color: inherit;
+    font-family: inherit;
+  }
+  
+  /* Add background color to navigation links on hover */
+  .navbar a:hover, .subnav:hover .subnavbtn {
+    background-color: #f5f5f5 ;
+  }
+  
+  /* Style the subnav content - positioned absolute */
+  .subnav-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: #f5f5f5 ;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  /* Style the subnav links */
+  .subnav-content a {
+    float: left;
+    color: black;
+    text-decoration: none;
+  }
+  
+  /* Add a grey background color on hover */
+  .subnav-content a:hover {
+    background-color: #787878;
+    color: #eee;
+  }
+  
+  /* When you move the mouse over the subnav container, open the subnav content */
+  .subnav:hover .subnav-content {
+    display: block;
+  }
+
+
+.home-page-desc{
+  margin-top: 75px;              /*shift it so have space between slideshow and the text*/
+  margin-bottom: 75px;           /*shift it so that can have space between collections text and collections image */
+  font-size: 4vw;                /* will take 6* of viewport*/
+  justify-content: CENTER;
+  display: flex;           
+  text-decoration: underline;
+  text-underline-offset: 20px;   /*spacing between underline and word*/
+  text-decoration-thickness: 5px;
+}
+
+/* CIRCULAR IMAGES */
+
+.first-row-of-circle-images {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 5px;
+  justify-content: space-evenly;          /* Center the circles  */
+  margin-bottom: 55px;                    /* Ensure have space between 1st row and 2nd rw */
+}
+  
+.second-row-of-circle-images{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 5px;
+  justify-content: space-evenly;          /* Center the circles  */
+}
+
+.circle-image-first-row {
+  width: 320px;
+  height: 320px;
+  overflow: hidden;                             /* So that image become a circle instead of square */
+  border-radius: 50%;                          /* Also so that image is a circle */
+  transition: transform 0.3s ease-in-out;      /* Transform is to link the hovering to this transition (below, your hover is called TRANSFORM) + 0.3s to go from OG state to NEW state + ease-in-out is slow at first, then faster, then slow again */
+  border: 7px solid black;                  /* Solid because want solid line border */
+  flex-grow: 1;                               /* Ensures that evenly spread out, eg Even if when hover and image expands, it will still be evenly spread out */
+  position: relative;                        /* So that the text can show up as this basically is saying that ur items in ur container (circle-image-first-row) are assigned where you want them to be */
+  display: inline-block;                     /* Also so that text shows up */
+
+}
+
+.circle-image-first-row img{
+  width: 100%;
+  height: 100%;    /* helps to center the image in the circle! */
+}
+
+.circle-image-second-row{
+  width: 320px;
+  height: 320px;
+  overflow: hidden;                           
+  border-radius: 50%;                          
+  transition: transform 0.3s ease-in-out;    
+  border: 7px solid black;                 
+  flex-grow: 1;    
+  position: relative;                       
+  display: inline-block;                                  
+}
+
+.circle-image-second-row img{
+  width: 100%;
+  height: 100%;    /* helps to center the image in the circle! */
+}
+
+.circle-image-first-row:hover,
+.circle-image-second-row:hover {
+    transform: scale(1.2); /* Hover effect for both first and second rows */
+}
+
+.link-fr:hover,
+.link-sr:hover {
+    transform: scale(1.2); /* Hover effect for both first and second rows */
+}
+/*   UP TO HERE IS THE CIRCULAR IMAGE ++ ADD LINK SUCH THAT when user click on it, can go to earrings page + hover will bigger <--------------------------------------------------------------------------------------------------!!!1 */
+
+
+.circle-image-text {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8); /* 0.8 stands for 80% opacity. the 255 all represents max red, green, blue. So when combined tgt they give u transparent */
+  top: 50%; /* Adjust as needed to center the text vertically */
+  left: 50%; /* Adjust as needed to center the text horizontally */
+  transform: translate(-50%, -50%);
+  color: black; /* Adjust the text color as needed */
+  justify-content: center;
+  font-size: 40px; 
+  font-weight: bolder;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Customer Reviews */
+#customer-reviews{
+display: flex;
+width:100%;
+}
+.customer-review-container{
+display: flex;
+justify-content: center;  /* Cnter the reviews */
+flex-wrap: wrap;    /* So the 2 reviews on top then the other 2 can be below it */
+width:100%;
+}
+.review-box{
+width:700px;     /* width of the review box */
+box-shadow: 2px 2px 30px rgba(0,0,0,0.2);   /* add some shawdow to the review box. fromat is for horizontal dist to the shadow, then verticle, thennthe vlur radius aka amount of blur applied to shadow. then the 0.3 represents opacity */
+background-color: #ffffff;
+padding: 20px;
+margin: 15px;
+cursor: pointer;
+}
+.profile-img{
+width:50px;
+height: 50px;
+border-radius: 50%;
+overflow: hidden;
+margin-right: 10px;
+}
+.profile-img img{
+width: 100%;
+height: 100%;
+object-fit: cover;   /* So that ratio of image is fixed aka it will not be stretched or squeezed, and it adjusts to the dimension you wantt it to be */
+object-position: center;  /* horizontally and vertically, it is cenrtered */
+}
+.customer-profile{
+display: flex;
+align-items: center;    /* Will ensure that the name and username is besid eimage */
+}
+.name-user{
+display: flex;
+flex-direction: column;   /* ensure tahat username is BELOW name */
+}
+.name-user strong{
+color: #3d3d3d;
+font-size: 1.2rem;    /* rem is for responsive  */
+letter-spacing: 0.5px;
+}
+.name-user span{
+color: #979797;
+font-size: 0.9rem;
+}
+.star-rating{
+color: #f9d71c;
+}
+
+.box-top{
+display: flex;
+justify-content: space-between; /* To distribute ur things evenly */
+align-items: center;
+margin-bottom: 20px;
+}
+.review-text p{
+font-size: 1rem;
+color: #4b4b4b;
+}
+.review-box:hover{
+transform: translateY(-10px);   /*  moves the element vertically by -10px when it is hovered over. The negative value of 10px means it will move upward by 10 pixels */
+transition: all ease 0.3s;  /* make traansition for 0.3s. all means all elements will be transitioned. ease is so that in starts slow, then fast, then slow again */
+}
+
+
+
+/* Contact Border */
+.footer-gray {
+  background-color: #ededed;
+  width: 100%;
+  margin-top: 45px; /* spacing between the entire footer and rhe customer reviews aka the one on top of it */
+}
+
+.footer-custom {
+  color: #888;
+  font: normal normal 12px/1.4 "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;  /* In order, represents font-style, font-weight aka bold or not, font-size, line-height, font family. */
+  max-width: 9970px;
+  box-sizing: border-box;
+  margin-left: 50px;
+  padding: 24px;
+}
+
+.footer-custom:after {   /* The after just means that you are applying these styles to all that is found AFTER the footer custom. eg Order Toll Free, Internation deliveries etc etc, must go see in html what is coded after your fooster custom */
+  display: table;        /* Then all these code here is just to help get rid and clear any float items because float items can mes sup with your layout if you do not settle them well */
+  clear: both;
+  content: "";
+}
+
+.ftr-hdr {
+  color: #000;
+  font: 22px/1.4 'BebasNeueRegular', BebasNeue, 'Bebas Neue', Arial, sans-serif;
+  margin: 1em 0 0;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .ftr-hdr {
+    font-size: 18px;
+  }
+}
+
+.footer-list-wrap {
+  width: 50%;
+  float: left;
+}
+
+@media only screen and (min-width: 568px) {
+  .footer-list-wrap {
+    width: 33.3333%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .footer-list-wrap {
+    width: 25%;
+  }
+}
+
+.ftr-links-sub {
+  padding: 0;   /* for spacing of SINGAPORE, MALAYSIA, OUR COMPANY et etc texts like that */
+  margin: 0;
+}
+
+.ftr-links-sub li {              /* This is like the texts, eg SINGAPORE, MALAYSIA, OUR COMPANY etc etc */
+  display: block;
+  margin: 0;
+  padding: 3px 0;
+  color: #888;
+  font: normal normal 12px "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  text-transform: uppercase;
+  /*width: 150px;*/
+}
+
+.footer-custom a
+ {
+  text-decoration: none;
+  color: #888;
+  padding: 5px 0;
+  display: block;
+}
+
+.footer-legal p{
+  margin-top: 34px;
+}
+.footer-custom .footer-legal a {
+  display: inline;
+}
+
+.footer-custom a:hover,
+.footer-custom a:active{
+  text-decoration: underline;
+  color: #888;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .footer-custom a, .footer-custom a:link, .footer-custom a:visited, .ftr-links-sub li .link {
+    padding: 0;
+  }
+}
+/* BEGIN EMAIL CAPTURE STYLES*/
+
+.footer-email {
+  text-align: center;
+}
+
+.footer-social {
+  text-align: center;
+}
+
+.footer-social ul {
+  padding: 0;
+  display: inline-block;
+  list-style-type: none;
+}
+
+.footer-social li {
+  float: left;
+  margin: 0 15px 0 0;
+  padding: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .footer-lists {
+    width: 100%;
+  }
+  .footer-email {
+    width: 50%;
+    float: left;
+    text-align: left;
+  }
+  .footer-social {
+    width: 45%;
+    margin-left: 5%;
+    float: left;
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 1008px) {
+  .footer-lists {
+    width: 66.6666%;
+    float: left;
+  }
+  .footer-email {
+    width: 33.3333%;
+  }
+  .footer-social {
+    width: 33.3333%;
+    float: right;
+    margin-left: 0;
+  }
+}
+
+.footer-legal {
+  padding: 15px 0 0;
+  clear: left;
+}
+
+.footer-map img {
+  margin-right: 80px;
+  width: 400px;
+  height: 250px;
+}
+
+@media only screen and (min-width: 768px) {
+  .footer-legal {
+    width: 66.6666%;
+    float: left;
+  }
+  .footer-payment {
+    width: 33.3333%;
+    float: left;
+  }
+}
+
+@media only screen and (min-width: 1008px) {
+  .footer-payment {
+    text-align: left;
+  }
+}
+
+.footer-payment ul {
+  padding: 0;
+  display: inline-block;
+  list-style-type: none;
+}
+
+.footer-payment ul li {
+  display: inline-block;
+  margin: 0 6px;
+}
+
+@media only screen and (min-width: 1008px) {
+  .footer-payment ul li.ftr-stella {
+    margin-left: 0;
+  }
+}
+
+
+
+/* THIS IS FOR RESPONSIVENESS */
+/* Tablet styles */
+/* Responsive layout for smaller screens */
+/* Your existing styles for larger screens */
+
+/* Media Query for screens smaller than 600px */
+
+@media only screen and (max-width: 768px) {
+
+  *{
+    overflow-x: hidden;
+  }
+
+  .review-box{
+    width:auto;
+  }
+
+  .banner {
+    height: 160px;
+    text-wrap: nowrap;
+    font-size: 50px;
+  }
+
+  .popup{
+    width: 80%;
+    height: 70%;
+    position: fixed;
+  }
+
+
+  .slideshow-container {
+    position: relative;
+    overflow: hidden;
+    height: 380px; /* change height of the container to fit the smaller image height */
+  }
+
+.dot {
+  margin: 0 1px; /* Adjust the margin to bring the dots closer to the image */
+  height: 10px; /* Adjust the height of the dots for smaller screens */
+  width: 10px; /* Adjust the width of the dots for smaller screens */
+}
+
+  .slideshow-container img {
+    height: 380px;
+    width: 100%;
+    object-fit: cover;  /* Dont squeeze/stretch the image or change the img ratio but will follow the dimensions you want */
+  }
+
+  .home-page-desc{
+    font-size: 58px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    margin-bottom: 50px;
+  }
+
+  .first-row-of-circle-images,
+  .second-row-of-circle-images {
+    display: block;  /* Ensure can stack on top of one another */
+    margin-left: 29%;  /* adjust the space between circle and border when responsive so it cn be centered */
+    width: 50%;
+    margin-bottom: 29px; /* Spacing between circles */
+    flex-wrap: wrap;
+  }
+
+  .circle-image-first-row,
+  .circle-image-second-row {
+    width: 330px; /* SIZE OFCIRCLES */
+    height: 330px;
+    margin-bottom: 40px;   /* Spacing between circles */
+  }
+  
+  .circle-image-text {
+    font-size: 42px; /* Adjust text size for smaller screens */
+  }
+
+  .ftr-hdr {
+    font-size: 18px;
+  }
+
+  .footer-list-wrap {
+    width: 25%;
+  }
+
+  .footer-custom a, .footer-custom a:link, .footer-custom a:visited, .ftr-links-sub li .link {
+    padding: 0;
+  }
+
+  .footer-lists {
+    width: 100%;
+  }
+  .footer-email {
+    width: 50%;
+    float: left;
+    text-align: left;
+  }
+  .footer-social {
+    width: 45%;
+    margin-left: 5%;
+    float: left;
+    text-align: left;
+  }
+
+  .footer-legal {
+    width: 66.6666%;
+    float: left;
+  }
+  .footer-payment {
+    width: 33.3333%;
+    float: left;
+  }
+  
+  }
+  
+
+@media only screen and (max-width: 600px) {
+*{
+  overflow-x: hidden;
+}
+  .review-box{
+    width:auto;
+  }
+
+  .banner {
+    width: 100%;
+    height: 170px;
+    font-size: 50px;
+    text-align: center;
+    text-wrap: wrap; /* os that text is not in straight line, if not enough space then other texts will go below */
+  }
+
+  .popup{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+  }
+
+  .navbar {
+    flex-direction: row;   /* lets text be horizontal */
+    display: flex;    /*This to ensure responsive */
+    margin-left: -3px;  /* Shift it to left */
+  }
+  
+  .navbar a {
+    /* Adjust the navigation links  */
+    font-size: 18px;
+    padding: 23px 10px;     /* first px is for top and bottom, second px is for the sides */
+  }
+  
+  .subnav .subnavbtn {
+    /* Adjust the subnav buttons for smaller screens */
+    font-size: 18px;
+    padding: 23px 10px;
+  }
+
+  .slideshow-container {
+    position: relative;
+    overflow: hidden;
+    height: 330px; /* Adjust the height of the container to accommodate the smaller image height */
+  }
+
+.dot {
+  margin: 0 1px; /* Adjust the margin to bring the dots closer to the image */
+  height: 10px; /* Adjust the height of the dots for smaller screens */
+  width: 10px; /* Adjust the width of the dots for smaller screens */
+}
+
+  .slideshow-container img {
+    height: 330px;
+    width: 100%;
+    object-fit: cover;  /* Dont squeeze/stretch the image or change the img ratio but will follow the dimensions you want */
+  }
+
+  .home-page-desc {
+    font-size: 50px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    margin-top: 53px;
+    margin-bottom: 40px;
+  }
+
+  .first-row-of-circle-images,
+  .second-row-of-circle-images {
+    margin-left: 17%;  /* adjust the space between circle and border when responsive so it cn be centered */
+    width: 100%;
+    margin-bottom: 20px; /* Spacing between circles */
+    flex-wrap: wrap;
+  }
+
+  .circle-image-first-row,
+  .circle-image-second-row {
+    width: 290px; /* SIZE OFCIRCLES */
+    height: 290px;
+    margin-bottom: 40px;   /* Spacing between circles */
+  }
+  
+  .circle-image-text {
+    font-size: 42px; /* Adjust text size for smaller screens */
+  }
+  
+
+  .circle-image-first-row:hover,
+  .circle-image-second-row:hover {
+    transform: scale(1.2); /* Hover effect for both first and second rows */
+    position: relative; /* Add this to keep the image's position relative */
+    z-index: 1; /* Add this to ensure the image stays on top of other elements */
+  }
+  
+  
+/*   UP TO HERE IS THE CIRCULAR IMAGE ++ ADD LINK SUCH THAT when user click on it, can go to earrings page + hover will bigger <--------------------------------------------------------------------------------------------------!!!1 */
+
+
+  .footer-lists {
+    display: flex; /* flexbox for container */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+    margin-bottom: 50px;   /* Space between footer list and the elements below it aka the email address part */
+  }
+
+  .footer-list-wrap {
+    width: 50%; /* Adjust the width to occupy the full width on smaller screens */
+    box-sizing: border-box;
+  }
+
+  .ftr-hdr {
+    font-size: 18px; /* Reduce the font size for better readability on smaller screens */
+  }
+
+  .footer-custom {
+    margin-left: 40px; /* So can center the texts/info! */
+    padding: 12px; /* Reduce the padding for better spacing on smaller screens */
+  }
+
+.ftr-email-form{
+  margin-top: 10px;
+  margin-left: 0px;
+}
+
+.footer-email h6{
+  max-width: 100%;
+  margin-left: 0px; /* Aka the Sign up for exclusive deals part */
+}
+
+.footer-social h6{   /* Aka the follow us */
+  margin-left: 0px;
+}
+  .footer-social ul {
+    text-align: center; /* Center-align the social media icons */
+    margin-left: 0px; /* Adjust so can center it as well */
+  }
+
+
+  .footer-legal p {
+    text-align: center; /* Center-align the legal information */
+    max-width: 100%;
+    margin-left: 100px; /* Adjust so can center it as well */
+  }
+}
+
+
+
+
+  
+
+
+/* ALL EARRINGS PAGE */
+
+.specific-page-desc{
+  margin-top: 75px;              /*shift it so have space between slideshow and the text*/
+  margin-bottom: 75px;           /*shift it so that can have space between collections text and collections image */
+  font-size: 4vw;                /* will take 6* of viewport*/
+  justify-content: CENTER;
+  display: flex;           
+  text-decoration: underline;
+  text-underline-offset: 20px;   /*spacing between underline and word*/
+  text-decoration-thickness: 5px;
+}
+
+.specific-page-desc-products{
+  margin-top: 75px;              /*shift it so have space between slideshow and the text*/
+  margin-bottom: 75px;           /*shift it so that can have space between collections text and collections image */
+  font-size: 4vw;                /* will take 6* of viewport*/
+  justify-content: CENTER;
+  display: flex;           
+  text-decoration: underline;
+  text-underline-offset: 20px;   /*spacing between underline and word*/
+  text-decoration-thickness: 5px;
+}
+
+/* for hero image */
+body, html {
+  height: 100%;
+}
+
+/* The hero image */
+.hero-image {
+/* Use "linear-gradient" to add a darken background effect to image. 0.5 represents opacity */
+background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/OUR\ EARRINGS\ HERO.png");
+
+/* Set height for image*/
+height: 70%;
+
+/* Position and center the image to scale nicely on all screens */
+background-position: center;   
+background-repeat: no-repeat;  /* dont want image to repeta */
+background-size: cover;        /* maintain img's ratio but dont stretch image or squeeze etc */
+position: relative;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+text-align: center;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+color: white;
+margin-bottom: 0;
+}
+
+.hero-text h1{
+  font-size: 60px;
+}
+.hero-text p{
+  margin-top: -40px;
+}
+
+
+/* for scrollable img gallery */
+.scroll-container {
+  background-color: white;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+.scroll-container img {
+  padding: 10px;
+  width: 400px;
+  height: 400px;
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+
+.scroll-container img:hover {
+  transform: translateY(-15px); /* Move the image element up by 15 on hover, move Up thus -ve*/
+}
+
+
+/* For products */
+.wrapper{
+  width: 100%;
+  margin: 0 auto;
+  display: flex; 
+  flex-wrap: wrap;
+}
+
+.clearfix::after {   /* So that my footer dont wrap around my product images and hence ruin the layout */
+  content: "";
+  display: block;     /* so element will be displayed as a block, eg like how Headers are displayed */
+  clear: both;        /* So no floating elements ar eallowed to float on either sides of the element */
+}
+
+figure {
+  width: 26%;
+  float: left;
+  margin-left: 70px;       /* 0 spacing */
+}
+figcaption {
+  text-align: center;    /* For my text to be center of image */
+}
+figcaption h2 {
+  text-transform: uppercase;
+  margin: 60px 0;
+  font-family: "Poppins ExtraBold";
+  margin-top: 20px;
+}
+figcaption p {
+  width: 90%;
+  margin: auto;
+  font-size: 19px;
+  font-family: roboto;
+  letter-spacing: 2px;
+  margin-top: -50px;    /* To adjust spacing between product desc and the name of product */
+}
+.hover-animation {
+  position: relative;
+  height: 350px;
+  width: 350px;
+  margin: 10% auto 0;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+}
+
+.hover-animation img {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  transition: opacity 0.5s ease; /* For the transition, takes 0.5s */
+}
+
+.hover-animation img.img-front:hover{
+  opacity:0;
+  cursor: pointer;
+}
+
+
+/* Responsive for specialised pages like earrings */
+
+@media only screen and (max-width: 768px) {
+  *{
+    overflow-x: hidden;
+  }
+  .hero-image{
+    object-fit: cover;
+    height: 400px;
+    width: 100%;
+  }
+
+
+  .hero-text h1{
+    white-space: nowrap; /* so that is ALL EARRINGS instead of ALL EARRINGS on diferent lines */
+    font-size: 54px;
+    margin-bottom: 43px;
+  }
+
+  .hero-text p{
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .hero-text button{
+    font-size: 13px;
+  }
+
+  .specific-page-desc{
+    font-size: 47px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    text-align: center;
+    text-wrap: nowrap;  /* so text in same line */
+  }
+
+  .specific-page-desc-products{
+    font-size: 55px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    text-align: center;
+    text-wrap: nowrap;  /* so text in same line */
+  }
+
+  .scroll-container img{
+    width: 300px;
+    height: 300px;
+  }
+  
+
+  figure {
+    width: 100%; /* make width to 100% for responsiveness */
+    margin-left: 45px; /* spacing so can shift then can make it center  */
+  }
+  
+  figcaption {
+    text-align: center;
+    overflow: hidden; /* Set overflow to hidden to prevent scrolling */
+  }
+  
+  figcaption h2 {
+    margin-top: 23px;
+  }
+  
+  figcaption p {
+    width: 90%;
+    font-size: 16px; /* Adjust the font size for smaller screens */
+    letter-spacing: 1px; /* Adjust the letter spacing for smaller screens */
+    margin-top: -54px;  /*Shift text to be more up and closer to product name */
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  *{
+    overflow-x: hidden;
+  }
+
+  .hero-image{
+    object-fit: cover;
+    height: 400px;
+    width: 100%;
+  }
+
+
+  .hero-text h1{
+    white-space: nowrap; /* so that is ALL EARRINGS instead of ALL EARRINGS on diferent lines */
+    font-size: 47px;
+    margin-bottom: 43px;
+  }
+
+  .hero-text p{
+    font-size: 21px;
+    margin-bottom: 10px;
+  }
+
+  .hero-text button{
+    font-size: 13px;
+  }
+
+  .specific-page-desc{
+    font-size: 36px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    text-align: center;
+    text-wrap: nowrap;  /* so text in same line */
+  }
+
+  .specific-page-desc-products{
+    font-size: 46px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    text-align: center;
+    text-wrap: nowrap;  /* so text in same line */
+  }
+
+
+
+  .scroll-container img{
+    width: 300px;
+    height: 300px;
+  }
+  
+
+  figure {
+    width: 100%; /* make width to 100% for responsiveness */
+    margin-left: 45px; /* spacing so can shift then can make it center  */
+  }
+  
+  figcaption {
+    text-align: center;
+    overflow: hidden; /* Set overflow to hidden to prevent scrolling */
+  }
+  
+  figcaption h2 {
+    margin-top: 23px;
+  }
+  
+  figcaption p {
+    width: 90%;
+    font-size: 16px; /* Adjust the font size for smaller screens */
+    letter-spacing: 1px; /* Adjust the letter spacing for smaller screens */
+    margin-top: -54px;  /*Shift text to be more up and closer to product name */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Contact Us Page */
+.contact_us_6 * {
+  font-family: Nunito, sans-serif;
+  width: 100%;
+}
+
+.contact_us_6 .text-blk {
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  line-height: 25px;
+}
+
+.contact_us_6 .responsive-cell-block {
+  min-height: 75px;
+}
+
+.contact_us_6 input:focus,
+.contact_us_6 textarea:focus {
+  outline-color: initial;
+  outline-style: none;
+  outline-width: initial;
+}
+
+.contact_us_6 .container-block {
+  min-height: 75px;
+  width: 100%;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  display: block;
+}
+
+.contact_us_6 .responsive-container-block {
+  min-height: 75px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 50px;
+  margin-left: auto;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+
+.contact_us_6 .responsive-container-block.big-container {
+  padding-top: 10px;
+  padding-right: 30px;
+  width: 35%;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  background-color: #03a9f4;
+  position: absolute;
+  height: 950px;
+  right: 0px;
+}
+
+.contact_us_6 .responsive-container-block.container {
+  position: relative;
+  min-height: 75px;
+  flex-direction: row;
+  z-index: 2;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0px;
+  padding-right: 30px;
+  padding-bottom: 0px;
+  padding-left: 30px;
+  max-width: 1320px;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+}
+
+.contact_us_6 .container-block.form-wrapper {
+  background-color: white;
+  max-width: 550px;
+  text-align: center;
+  padding-top: 50px;
+  padding-right: 40px;
+  padding-bottom: 50px;
+  padding-left: 40px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 20px 7px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  margin-top: 90px;
+  margin-right: 0px;
+  margin-bottom: 60px;
+  margin-left: 0px;
+}
+
+.contact_us_6 .text-blk.contactus-head {
+  font-size: 36px;
+  line-height: 52px;
+  font-weight: 900;
+}
+
+.contact_us_6 .text-blk.contactus-subhead {
+  color: #9c9c9c;
+  width: 300px;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 50px;
+  margin-left: auto;
+  display: none;
+}
+
+.contact_us_6 .responsive-cell-block.wk-desk-6.wk-ipadp-6.wk-tab-12.wk-mobile-12 {
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 26px;
+  margin-left: 0px;
+  min-height: 50px;
+}
+
+.contact_us_6 .input { /* BOX FOR FIRST NAME, EMAIL etc etc */
+  width: 90%;
+  height: 50px;
+  padding-top: 1px;
+  padding-right: 15px;
+  padding-bottom: 1px;
+  padding-left: 15px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: #eeeeee;
+  border-right-color: #eeeeee;
+  border-bottom-color: #eeeeee;
+  border-left-color: #eeeeee;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  font-size: 16px;
+  color: black;
+}
+
+.contact_us_6 .textinput {  /* The text area for WHAT DO YOU HAV EIN MIND */
+  width: 90%;
+  min-height: 150px;
+  padding-top: 20px;
+  padding-right: 15px;
+  padding-bottom: 20px;
+  padding-left: 15px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: #eeeeee;
+  border-right-color: #eeeeee;
+  border-bottom-color: #eeeeee;
+  border-left-color: #eeeeee;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  font-size: 16px;
+}
+
+.contact_us_6 .submit-btn {
+  width: 98%;
+  background-color: #03a9f4;
+  height: 60px;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border-top-style: outset;
+  border-right-style: outset;
+  border-bottom-style: outset;
+  border-left-style: outset;
+  border-top-color: #767676;
+  border-right-color: #767676;
+  border-bottom-color: #767676;
+  border-left-color: #767676;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+}
+
+.contact_us_6 .form-box {
+  z-index: 2;
+  margin-top: 0px;
+  margin-right: 48px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  width: 90%;
+}
+
+.contact_us_6 .text-blk.input-title {
+  text-align: left;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 10px;
+  font-size: 14px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  color: #9c9c9c;
+}
+
+.contact_us_6 ::placeholder {
+  color: #dadada;
+}
+
+.contact_us_6 .mob-text {
+  display: block;
+  text-align: left;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 25px;
+  margin-left: 0px;
+}
+
+.contact_us_6 .responsive-cell-block.wk-tab-12.wk-mobile-12.wk-desk-12.wk-ipadp-12 {
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 20px;
+  margin-left: 0px;
+}
+
+.contact_us_6 .text-blk.contactus-subhead.color {
+  color: white;
+}
+
+.contact_us_6 .map-box {
+  max-width: 800px;
+  max-height: 520px;
+  width: 100%;
+  height: 520px;
+  background-color: #d9d9d9;
+  background-image: url("https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/sc23.png");
+  background-size: cover;
+  background-position-x: 50%;
+  background-position-y: 50%;
+}
+
+.contact_us_6 .map-part {
+  width: 100%;
+  height: 100%;
+}
+
+.contact_us_6 .text-blk.map-contactus-head {
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 32px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  color: #03a9f4;
+}
+
+.contact_us_6 .text-blk.map-contactus-subhead {
+  max-width: 300px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 20px;
+  margin-left: 0px;
+}
+
+.contact_us_6 .social-media-links.mob {
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 30px;
+  margin-left: 0px;
+  width: 230px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.contact_us_6 .link-img {
+  width: 30px;
+  height: 30px;
+  margin-top: 0px;
+  margin-right: 25px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
+
+.contact_us_6 .link-img.image-block {
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
+
+.contact_us_6 .social-icon-link {
+  margin: 0 25px 0 0;
+  padding: 0 0 0 0;
+}
+
+@media (max-width: 1024px) {
+  .contact_us_6 .responsive-container-block.container {
+    justify-content: center;
+  }
+
+  .contact_us_6 .map-box {
+    position: absolute;
+    top: 0px;
+    max-height: 320px;
+  }
+
+  .contact_us_6 .map-box {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .contact_us_6 .responsive-container-block.container {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+  }
+
+  .contact_us_6 .map-part {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact_us_6 .container-block.form-wrapper {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+
+  .contact_us_6 .mob-text {
+    display: block;
+  }
+
+  .contact_us_6 .form-box {
+    margin-top: 200px;
+    margin-right: 60px;
+    margin-bottom: 40px;
+    margin-left: 0px;
+  }
+
+  .contact_us_6 .link-img {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .contact_us_6 .social-media-links.mob {
+    justify-content: space-evenly;
+  }
+
+  .contact_us_6 .responsive-cell-block.wk-desk-7.wk-ipadp-12.wk-tab-12.wk-mobile-12 {
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .contact_us_6 .text-blk.contactus-subhead {
+    display: block;
+  }
+
+  .contact_us_6 .mob-text {
+    text-align: center;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+
+  .contact_us_6 .responsive-container-block.container {
+    flex-wrap: wrap;
+  }
+
+  .contact_us_6 .form-box {
+    margin-top: 200px;
+    margin-right: 0px;
+    margin-bottom: 40px;
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact_us_6 .submit-btn {
+    width: 100%;
+  }
+
+  .contact_us_6 .input {
+    width: 100%;
+  }
+
+  .contact_us_6 .textinput {
+    width: 100%;
+  }
+
+  .contact_us_6 .container-block.form-wrapper {
+    margin-top: 80px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+
+  .contact_us_6 .text-blk.input-title {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+  }
+
+  .contact_us_6 .form-box {
+    padding-top: 0px;
+    padding-right: 20px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+  }
+
+  .contact_us_6 .container-block.form-wrapper {
+    padding-top: 50px;
+    padding-right: 15px;
+    padding-bottom: 50px;
+    padding-left: 15px;
+  }
+
+  .contact_us_6 .mob-text {
+    display: block;
+  }
+
+  .contact_us_6 .responsive-container-block.container {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+  }
+
+  .contact_us_6 .form-box {
+    margin-top: 200px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+
+  .contact_us_6 .container-block.form-wrapper {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+
+  .contact_us_6 .form-box {
+    margin-top: 220px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+
+  .contact_us_6 .form-box {
+    margin-top: 220px;
+    margin-right: 0px;
+    margin-bottom: 50px;
+    margin-left: 0px;
+  }
+
+  .contact_us_6 .text-blk.contactus-head {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  .contact_us_6 .container-block.form-wrapper {
+    padding-top: 50px;
+    padding-right: 15px;
+    padding-bottom: 50px;
+    padding-left: 15px;
+  }
+
+  .contact_us_6 .container-block.form-wrapper {
+    margin-top: 60px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+
+  .contact_us_6 .responsive-cell-block.wk-ipadp-6.wk-tab-12.wk-mobile-12.wk-desk-6 {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 15px;
+    margin-left: 0px;
+  }
+
+  .contact_us_6 .responsive-container-block {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 35px;
+    margin-left: 0px;
+  }
+
+  .contact_us_6 .text-blk.input-title {
+    font-size: 12px;
+  }
+
+  .contact_us_6 .text-blk.contactus-head {
+    font-size: 26px;
+    line-height: 35px;
+  }
+
+  .contact_us_6 .input {
+    height: 45px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
