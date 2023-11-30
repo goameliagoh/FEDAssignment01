@@ -3,14 +3,14 @@ body{
   padding: 0;
   width: 100%;
   overflow-x: hidden;  /* make website dont shift left and right*/
-  background-color: #fefdfb;
+  background-color: #fcfaf8;
 }
   
 
 /* BELOW IS ALL CODES FOR HOMEPAGE */
 .banner {                                /* use .banner instead of just banner to show that its a class */
-    font-family: 'Noto Serif JP', serif;
-    background-color:#212121;
+  font-family: 'Noto Serif JP', serif;
+    background-color:#86866f;
     width: 100%;                /* Set the width to 100% to make it span the entire width instead of px bc px u need specifyc the px of the exact width.. so just use 100% easier  */
     height: 200px;
     display: flex;                    /* This makes use of something called Flexbox. Ensures that even on phone/when you squeeze the website, the name will always be in the center of banner */
@@ -90,7 +90,8 @@ body{
   cursor: pointer;
   height: 15px;
   width: 15px;
-  margin: 0 2px;             /* No spacing between top and bottom, but have 2px spacing from left and right + margin is change whiespace avail surrounding element, but padding is change inner spacing of element */
+  margin: 0 2px;  
+  margin-top: 20px;           /* No spacing between top and bottom, but have 2px spacing from left and right + margin is change whiespace avail surrounding element, but padding is change inner spacing of element */
   background-color: #bbb;
   border-radius: 50%;        /* so that the dots are circles. without this, it would be squares */
   display: inline-block;     /* ensures all button are in line and also same size */
@@ -114,6 +115,8 @@ body{
 .slideshow-container img {
   height: 100%;
   width: 100%;
+  object-fit: cover;
+
 }
 
 
@@ -125,7 +128,7 @@ body{
 /* The navigation menu */
 .navbar {
   overflow: hidden;
-  background-color: #f7f7f7;
+  background-color: #dfdace;
   list-style: none;
   display: flex;
   width: 100%;
@@ -135,63 +138,75 @@ body{
 }
   
   /* Navigation links aka the text names like Home, Contact Us*/
-  .navbar a {
-    font-size: 22px;
-    color: BLACK;
-    padding: 20px 30px;
-    text-decoration: none;
-  }
-  
-  /* The subnavigation menu */
-  .subnav {
+  .navbar {
     overflow: hidden;
-    text-align: center; /* Add this line to center the navigation */
-  }
-  
-  /* Subnav buttons aka the text names like Earrings, Charms etc etc */
-  .subnav .subnavbtn {
-    font-size: 22px;
-    border: none;
-    outline: none;
-    color: BLACK;
-    padding: 20px 30px;
-    background-color: inherit;
-    font-family: inherit;
-  }
-  
-  /* Add background color to navigation links on hover */
-  .navbar a:hover, .subnav:hover .subnavbtn {
-    background-color: #f5f5f5 ;
-  }
-  
-  /* Style the subnav content - positioned absolute */
-  .subnav-content {
-    display: none;
-    position: absolute;
-    left: 0;
-    background-color: #f5f5f5 ;
+    background-color: #dfdace;
+    list-style: none;
+    display: flex;
     width: 100%;
-    z-index: 1;
+    height: 70px;
+    text-align:center;
+    justify-content: center; 
   }
-  
-  /* Style the subnav links */
-  .subnav-content a {
-    float: left;
-    color: black;
-    text-decoration: none;
-  }
-  
-  /* Add a grey background color on hover */
-  .subnav-content a:hover {
-    background-color: #787878;
-    color: #eee;
-  }
-  
-  /* When you move the mouse over the subnav container, open the subnav content */
-  .subnav:hover .subnav-content {
-    display: block;
-  }
+    
+    /* Navigation links aka the text names like Home, Contact Us*/
+    .navbar a {
+      font-size: 23px;
+      color: #242424;
+      padding: 20px 30px;
+      text-decoration: none;
 
+    }
+    
+    /* The subnavigation menu */
+    .subnav {
+      overflow: hidden;
+      text-align: center; /* Add this line to center the navigation */
+    }
+    
+    /* Subnav buttons aka the text names like Earrings, Charms etc etc */
+    .subnav .subnavbtn {
+      font-size: 23px;
+      border: none;
+      outline: none;
+      color: #242424;
+      padding: 20px 30px;
+      background-color: inherit;
+      font-family: inherit;
+    }
+    
+    /* Add background color to navigation links on hover */
+    .navbar a:hover, .subnav:hover .subnavbtn {
+      color: white ;
+    }
+    
+    /* Style the subnav content - positioned absolute */
+    .subnav-content {
+      display: none;
+      position: absolute;
+      left: 0;
+      background-color: #dfdace ;
+      width: 100%;
+      z-index: 1;
+    }
+    
+    /* Style the subnav links */
+    .subnav-content a {
+      float: left;
+      color: black;
+      text-decoration: none;
+    }
+    
+    /* Add a grey background color on hover */
+    .subnav-content a:hover {
+      color: #eee;
+    }
+    
+    /* When you move the mouse over the subnav container, open the subnav content */
+    .subnav:hover .subnav-content {
+      display: block;
+    }
+  
 
 .home-page-desc{
   margin-top: 75px;              /*shift it so have space between slideshow and the text*/
@@ -229,7 +244,7 @@ body{
   overflow: hidden;                             /* So that image become a circle instead of square */
   border-radius: 50%;                          /* Also so that image is a circle */
   transition: transform 0.3s ease-in-out;      /* Transform is to link the hovering to this transition (below, your hover is called TRANSFORM) + 0.3s to go from OG state to NEW state + ease-in-out is slow at first, then faster, then slow again */
-  border: 7px solid black;                  /* Solid because want solid line border */
+  border: 6px solid black;                  /* Solid because want solid line border */
   flex-grow: 1;                               /* Ensures that evenly spread out, eg Even if when hover and image expands, it will still be evenly spread out */
   position: relative;                        /* So that the text can show up as this basically is saying that ur items in ur container (circle-image-first-row) are assigned where you want them to be */
   display: inline-block;                     /* Also so that text shows up */
@@ -247,7 +262,7 @@ body{
   overflow: hidden;                           
   border-radius: 50%;                          
   transition: transform 0.3s ease-in-out;    
-  border: 7px solid black;                 
+  border: 6px solid black;                 
   flex-grow: 1;    
   position: relative;                       
   display: inline-block;                                  
@@ -868,10 +883,16 @@ margin-bottom: 0;
 }
 
 .hero-text h1{
-  font-size: 60px;
+  font-size: 70px;
 }
 .hero-text p{
   margin-top: -40px;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.hero-text button{
+  width: 130px;
+  height: 30px;
 }
 
 
@@ -1176,7 +1197,7 @@ figcaption p {
 
 .submit-btn {
   width: 100%;
-  background-color: #03a9f4;
+  background-color: #8a9a5b;
   height: 60px;
   font-size: 20px;
   font-weight: 700;
@@ -1196,7 +1217,7 @@ figcaption p {
   font-weight: 900;
   font-size: 29px;
   line-height: 32px;
-  color: #03a9f4;
+  color: #8a9a5b;
   margin-left: 290px ;
 
 }
@@ -1228,7 +1249,7 @@ figcaption p {
 
 .map {
   background-color: #d9d9d9;
-  background-image: url("your-map-image-url.jpg");
+  background-image: url("images/MAP.jpg");
   background-size: cover;
   height: 520px;
   max-width: 800px;
