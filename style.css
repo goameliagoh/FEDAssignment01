@@ -1114,83 +1114,66 @@ figcaption p {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Contact Us Page */
-body {
+.contact-page {
   font-family: Nunito, sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
 .contact-container {
+  margin-top: 100px;
   display: flex;
-  justify-content: space-around;
-  max-width: 1200px;
-  margin: 50px auto;
+  justify-content: space-around; /* space between img and the form itself */
+  max-width: 1500px;
+  margin-left: 110px;  /* to shift to the left so can center everyhting */
 }
 
 .contact-form {
   background-color: white;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);  /* for shadow wbhere intensity of shadow is 0.3 */
+  border-radius: 20px;   /* so the form box border is not so sharp, is a little bit rounded */
   padding: 50px;
-  width: 45%;
+  width: 650px;
   margin-bottom: 20px; /* Added margin to create spacing */
+  margin-left: 15px;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 20px;  /* bottom spacing */
 }
 
 .form-title {
-  font-size: 36px;
-  font-weight: 900;
-  margin: 0 0 10px;
+  font-size: 38px;
+  font-weight: 900;   /* to make it darker, like more bolder */
+  margin: 0 0 10px;   /* spacing for top, right, bottom respectively */
 }
 
 .form-subtitle {
   color: #9c9c9c;
-  max-width: 300px;
-  margin: 0;
+  max-width: 550px;
+  font-size: 15.5px;
 }
 
-.input-label {
-  display: block;
-  font-size: 14px;
+.input-label {  /* Aka the title of the box eg First Name, Email */
+  font-size: 16px;
   color: #9c9c9c;
-  margin-bottom: 5px;
 }
 
 .input-field,
 .text-field {
   width: 100%;
   height: 50px;
-  padding: 1px 15px;
+  padding: 1px 3px;  /* top and bottom padding is 1px, left and right padding is 15 px */
   border: 2px solid #eeeeee;
   font-size: 16px;
   color: black;
-  font-family: Nunito, sans-serif; /* Added font-family */
+  font-family: Nunito, sans-serif; /* for fonts*/
 }
 
 .text-field {
-  min-height: 150px;
-  padding: 20px 15px;
+  min-height: 150px;  /* The height of text area box for How can we help you? part */
+  padding: 20px 3px;
 }
+
 .submit-btn {
   width: 100%;
   background-color: #03a9f4;
@@ -1198,50 +1181,176 @@ body {
   font-size: 20px;
   font-weight: 700;
   color: white;
-  border: 0;
-  border-radius: 40px;
+  border: 0;   /* so have no border*/
+  border-radius: 40px; /* make the border radius more rounded */
   cursor: pointer;
 }
 
 .contact-info {
-  text-align: center;
-  width: 45%;
-  margin-bottom: 20px; /* Added margin to create spacing */
+  width: 60%;
+  margin-left: 65px;  /* so will have spacing between the forms and the Reach Us At and image part */
 }
 
 
-.info-title {
+.info-title {   /* the Reach Us At */
   font-weight: 900;
-  font-size: 22px;
+  font-size: 29px;
   line-height: 32px;
   color: #03a9f4;
-  margin: 0 0 15px;
+  margin-left: 290px ;
+
 }
 
 .info-subtitle {
-  max-width: 300px;
-  margin: 0 0 30px;
+  max-width: 550px;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-left: 100px;
+  font-size: 19px;
+
 }
 
 .social-links {
   display: flex;
-  justify-content: center;
+  justify-content: center;   /* This and display flex is to make allthe socials links centered */
   margin-bottom: 30px;
+  margin-left: 50px;
+}
+
+.social-links img{
+  height: 24px;
+  width: 24px;
 }
 
 .social-icon {
-  margin-right: 25px;
+  margin-right: 40px;
 }
 
 .map {
   background-color: #d9d9d9;
   background-image: url("your-map-image-url.jpg");
   background-size: cover;
-  background-position: center;
   height: 520px;
   max-width: 800px;
   width: 100%;
+  margin-left: 18px;
 }
+
+
+@media only screen and (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    margin-left: 15px;
+  }
+
+  .contact-form {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .form-subtitle {
+    color: #9c9c9c;
+    max-width: 750px;
+    font-size: 15px;
+  }
+
+  .info-subtitle {
+    max-width: 80%;
+    font-size: 13px;
+    margin-left: 80px;
+  
+  }
+
+  .input-field,
+  .text-field {
+    height: 40px; /* Adjust the height of input boxes */
+    padding: 10px; /* Adjust padding for input boxes */
+    width: 570px;
+  }
+
+  .info-title {
+    text-align: center; /* Center the text within .info-title */
+    margin-left: 0;
+    margin-top: 60px;
+  }
+
+  .contact-info {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .info-subtitle{
+    font-size: 18px;
+  }
+
+  .map {
+    height: 300px;
+    overflow: hidden;
+    width: 700px;
+    margin-left: 20px;
+  }
+}
+
+
+
+
+
+@media (max-width: 600px) {
+
+  
+  .contact-container {
+    flex-direction: column;
+    margin-left: 15px;
+  }
+
+  .contact-form {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .form-subtitle {
+    color: #9c9c9c;
+    max-width: 550px;
+    font-size: 14px;
+  }
+
+  .info-subtitle {
+    max-width: 100%;
+    font-size: 15px;
+    margin-left: -1px;
+  
+  }
+
+  .input-field,
+  .text-field {
+    height: 40px; /* Adjust the height of input boxes */
+    padding: 10px; /* Adjust padding for input boxes */
+    width: 350px;
+  }
+
+  .info-title {
+    text-align: center; /* Center the text within .info-title */
+    margin-left: 0;
+  }
+
+  .contact-info {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .map {
+    height: 300px;
+    overflow: hidden;
+    width: 420px;
+    margin-left: 20px;
+  }
+}
+
+
+
+
 
 
 
