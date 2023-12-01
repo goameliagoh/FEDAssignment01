@@ -60,21 +60,28 @@ startSlideShow();
 
 
 // For Pop Up
-// This code runs when the entire webpage has finished loading
-window.addEventListener("load", function(){   // window represents the browser, addEventListener means listens for events on HTML.  "Listening for events" in the context of JavaScript means waiting for a specific action or occurrence to happen, and then responding to it with some code. && "load" is the event JS is listening for 
-  
-  setTimeout(                  // just saying that After 2000 milliseconds (2 seconds), carry out the open function
-      function open(event){    //Function to open 
-          document.querySelector(".popup").style.display = "block"; // Find HTML element with the class "popup" and change its display style to "block"
-      },
-      2000 
-  );
-});
+// This window.addeventlistener runs when the entire webpage has finished loading/it waits for the webpage to finish loading before it executes the code. Why? Is because it needs to ensure that all HTML, CSS, images r fully loaded b4 it runs
+window.addEventListener("load", function(){
+  document.querySelector("#openModal").addEventListener("click", function(){   /* is adding an event listener to the HTML with ID of 'openModal'. It will listen for click event on that, and when the 'openModal' is clicked, the code inside this would be executed */
+    document.querySelector(".modal").style.display = "block";     /* this would chnage the CSS style f HTML that is from 'modal' class and it sets the display property to block aka making it visible */
+  });
 
+  document.querySelector(".close").addEventListener("click", function(){   /* here is similar to above, but this time, event listener is add to HTML element with class 'close' and only when the class 'close' is clicked, then code inside executes */
+    document.querySelector(".modal").style.display = "none";               /* will change css style of html element belonging to class 'modal' by setting display property to none, which hides it */
+  });
+
+  document.querySelector(".modal").style.display !== "none" && setTimeout(  
+    function closeModal() {
+      document.querySelector(".modal").style.display = "none";
+    },
+    1000 
+  );     /* this entire code above is firstly checking if current display style of element from class 'modal' is NOT EQUALS TO none. if visible, then will move on to next part.*/
+         /* setTimeout is to delay execution of function by a certain amount of time, in miliseconds */
+         /* closeModal is to change the display style of modal to NONE after a 1 second delay, 1 second is 1000 millisecond */
+});
 // When an HTML element with the ID "close" is clicked
-document.querySelector("#close").addEventListener("click", function(){  // document.querySelector is a method in JavaScript that allows u to select the first element in the document (the HTML page) that matches a specified CSS selector. you can perform various operations on that element
-  // Is saying to find the HTML element with the class "popup" and change its display style to "none" (hide it)
-  document.querySelector(".popup").style.display = "none";
+document.querySelector("#close").addEventListener("click", function(){  /* adding eventlistener again for HTML element with ID of 'close'. So it will just listen for a click event on it. And when close is clicked, then code inside executed */
+  document.querySelector(".popup").style.display = "none";  /* this line change css style of HTML element from class 'popup' and it will hide the pop up by setting display property to none */
 });
 
 
